@@ -12,6 +12,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login-component';
 import { SearchComponent } from './search/search.component';
+import { FetchProteinDataComponent } from './fetch-protein-data/fetch-protein-data.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SearchComponent } from './search/search.component';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    FetchProteinDataComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
