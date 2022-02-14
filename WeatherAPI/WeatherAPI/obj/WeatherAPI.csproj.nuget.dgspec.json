@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj": {}
+    "C:\\Users\\david\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj": {
+    "C:\\Users\\david\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
+        "projectUniqueName": "C:\\Users\\david\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
         "projectName": "WeatherAPI",
-        "projectPath": "C:\\Users\\David\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\obj\\",
+        "projectPath": "C:\\Users\\david\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
+        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\david\\Documents\\GitHub\\pandos-dotnet\\WeatherAPI\\WeatherAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

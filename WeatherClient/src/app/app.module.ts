@@ -33,6 +33,7 @@ import { FetchProteinDataComponent } from './fetch-protein-data/fetch-protein-da
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'fetch-protein-data', component: FetchProteinDataComponent },
       { path: 'Login', component: LoginComponent }, // added component
       { path: 'search', component: SearchComponent } // added component
     ])

@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WeatherAPI",
+    "\\WeatherAPI\\Controllers",
+    "\\WeatherAPI\\Models"
   ],
+  "SelectedNode": "\\WeatherAPI",
   "PreviewInSolutionExplorer": false
 }
