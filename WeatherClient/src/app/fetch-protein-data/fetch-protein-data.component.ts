@@ -7,17 +7,26 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./fetch-protein-data.component.css']
 })
 export class FetchProteinDataComponent implements OnInit {
-  public pdbs: Pdb[] = [];
+
+  message = "";
+
+  onClicked(event: any) {
+    console.log(event);
+    this.message = event;
+  }
+
+
+  public uniprots: Uniprot[] = [];
 
   constructor(http: HttpClient, ) {
     let token = localStorage.getItem("jwt");
     console.log("this should be the jwt: ${token}"); // debugging
-    http.get<Pdb[]>('https://localhost:7165/Pdbs', { // TODO: what is this value?
+    http.get<Uniprot[]>('https://localhost:7165/api/Uniprots', { // TODO: what is this value?
       headers: {
         "Authorization": `Bearer ${token}`
       }
     }).subscribe(result => {
-      this.pdbs = result;
+      this.uniprots= result;
     }, error => console.error(error)); 
    }
 
@@ -26,9 +35,9 @@ export class FetchProteinDataComponent implements OnInit {
 
 }
 
-interface Pdb {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface Uniprot {
+  uniprotId: string;
+  accessionNumber: string;
+  entryStatus : string;
+  sequence: string;
 }

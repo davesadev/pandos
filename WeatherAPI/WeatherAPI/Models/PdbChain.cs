@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WeatherAPI.Models
 {
     [Table("pdb_chain")]
+    [Index(nameof(PdbId), Name = "IX_pdb_chain_pdb_id")]
     public partial class PdbChain
     {
         public PdbChain()

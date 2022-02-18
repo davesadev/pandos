@@ -20,6 +20,7 @@ namespace WeatherAPI.Models
         public virtual DbSet<PdbChain> PdbChains { get; set; } = null!;
         public virtual DbSet<PdbChainDatum> PdbChainData { get; set; } = null!;
         public virtual DbSet<Uniprot> Uniprots { get; set; } = null!;
+        public virtual DbSet<UniprotPdb> UniprotPdbs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -64,6 +65,13 @@ namespace WeatherAPI.Models
             modelBuilder.Entity<Uniprot>(entity =>
             {
                 entity.Property(e => e.UniprotId).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<UniprotPdb>(entity =>
+            {
+                entity.HasKey(e => new { e.UniprotId, e.PdbId });
+
+                entity.Property(e => e.UniprotId).IsFixedLength();
             });
 
             OnModelCreatingPartial(modelBuilder);

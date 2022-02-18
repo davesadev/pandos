@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 var identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<LibraryContext>(options =>
+builder.Services.AddDbContext<proteindomainannotationsContext>(options =>
     options.UseSqlServer(defaultConnectionString));
 
 // could be renamed IdentityDbContext but that's a stretch goal
@@ -48,7 +48,7 @@ builder.Services.AddAuthentication(opt =>
 
             ValidIssuer = "http://localhost:5000",
             ValidAudience = "http://localhost:5000",
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Csun590@8:59PMS#cretKey"))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("protein-domain-annotations@8:59PMS#cretKey"))
 
         };
     });

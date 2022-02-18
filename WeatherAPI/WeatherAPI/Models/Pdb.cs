@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WeatherAPI.Models
 {
     [Table("pdb")]
+    [Index(nameof(UniprotId), Name = "IX_pdb_uniprot_id")]
     public partial class Pdb
     {
         public Pdb()
