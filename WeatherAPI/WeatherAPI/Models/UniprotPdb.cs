@@ -11,7 +11,8 @@ namespace WeatherAPI.Models
     {
         [Key]
         [Column("uniprot_id")]
-        [StringLength(10)]
+        [StringLength(20)]
+        [Unicode(false)]
         public string UniprotId { get; set; } = null!;
         [Key]
         [Column("pdb_id")]

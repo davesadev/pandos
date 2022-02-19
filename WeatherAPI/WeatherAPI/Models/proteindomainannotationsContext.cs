@@ -33,15 +33,6 @@ namespace WeatherAPI.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pdb>(entity =>
-            {
-                entity.HasOne(d => d.Uniprot)
-                    .WithMany(p => p.Pdbs)
-                    .HasForeignKey(d => d.UniprotId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_pdb_uniprot");
-            });
-
             modelBuilder.Entity<PdbChain>(entity =>
             {
                 entity.Property(e => e.PdbChainId).ValueGeneratedNever();
@@ -62,16 +53,9 @@ namespace WeatherAPI.Models
                     .HasConstraintName("FK_pdb_chain_data_pdb_chain");
             });
 
-            modelBuilder.Entity<Uniprot>(entity =>
-            {
-                entity.Property(e => e.UniprotId).ValueGeneratedNever();
-            });
-
             modelBuilder.Entity<UniprotPdb>(entity =>
             {
                 entity.HasKey(e => new { e.UniprotId, e.PdbId });
-
-                entity.Property(e => e.UniprotId).IsFixedLength();
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -3,6 +3,18 @@
 
 <!-- dummy code for search bar -->
 <input #myTitle (keyup)="onClicked(myTitle.value)">
+
+<div class="md-form">
+  <input type="search" [(ngModel)]="searchText">
+   <!-- placeholder="Search text"> -->
+</div>
+<ul *ngFor="let uniprot of uniprots | filter: searchText">
+  <li>{{uniprot}}</li>
+</ul>
+
+
+
+
 <h5> {{ message }} </h5>
 
 

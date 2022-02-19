@@ -23,7 +23,8 @@ import { FetchProteinDataComponent } from './fetch-protein-data/fetch-protein-da
     FetchDataComponent,
     LoginComponent,
     SearchComponent,
-    FetchProteinDataComponent
+    FetchProteinDataComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -15,8 +15,10 @@ export class FetchProteinDataComponent implements OnInit {
     this.message = event;
   }
 
-
+  searchText = "a";
   public uniprots: Uniprot[] = [];
+  // public searchText: Uniprot[] = []; 
+  // double check this
 
   constructor(http: HttpClient, ) {
     let token = localStorage.getItem("jwt");
