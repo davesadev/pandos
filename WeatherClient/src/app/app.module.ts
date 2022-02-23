@@ -12,7 +12,6 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login-component';
 import { SearchComponent } from './search/search.component';
-import { FetchProteinDataComponent } from './fetch-protein-data/fetch-protein-data.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +21,7 @@ import { FetchProteinDataComponent } from './fetch-protein-data/fetch-protein-da
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    SearchComponent,
-    FetchProteinDataComponent,
-    FilterPipe
+    SearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,7 +31,6 @@ import { FetchProteinDataComponent } from './fetch-protein-data/fetch-protein-da
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'fetch-protein-data', component: FetchProteinDataComponent },
       { path: 'Login', component: LoginComponent }, // added component
       { path: 'search', component: SearchComponent } // added component
     ])
