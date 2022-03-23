@@ -12,8 +12,6 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login-component';
 import { SearchComponent } from './search/search.component';
-import { FetchConsensusUniprotComponent } from './fetch-consensus-uniprot/fetch-consensus-uniprot.component';
-import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,9 +21,7 @@ import { FilterPipe } from './shared/filter.pipe';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    SearchComponent,
-    FetchConsensusUniprotComponent,
-    FilterPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +31,6 @@ import { FilterPipe } from './shared/filter.pipe';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'fetch-consensus-uniprot', component: FetchConsensusUniprotComponent },
       { path: 'Login', component: LoginComponent }, // added component
       { path: 'search', component: SearchComponent } // added component
     ])
