@@ -5,6 +5,6 @@
     "\\WeatherAPI\\Controllers",
     "\\WeatherAPI\\Models"
   ],
-  "SelectedNode": "\\WeatherAPI",
+  "SelectedNode": "\\WeatherAPI\\Controllers\\PdbsController.cs",
   "PreviewInSolutionExplorer": false
 }
