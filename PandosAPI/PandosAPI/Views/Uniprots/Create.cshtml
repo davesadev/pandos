@@ -1,0 +1,48 @@
+﻿@model PandosAPI.Models.Uniprot
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Uniprot</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UniprotId" class="control-label"></label>
+                <input asp-for="UniprotId" class="form-control" />
+                <span asp-validation-for="UniprotId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccessionNumber" class="control-label"></label>
+                <input asp-for="AccessionNumber" class="form-control" />
+                <span asp-validation-for="AccessionNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EntryStatus" class="control-label"></label>
+                <input asp-for="EntryStatus" class="form-control" />
+                <span asp-validation-for="EntryStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label"></label>
+                <input asp-for="Sequence" class="form-control" />
+                <span asp-validation-for="Sequence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

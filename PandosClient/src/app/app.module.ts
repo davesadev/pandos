@@ -4,6 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgParticlesModule } from "ng-particles";
+import { MatSliderModule } from '@angular/material/slider';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -15,6 +23,7 @@ import { LoginComponent } from './login/login-component';
 import { SearchComponent } from './search/search.component';
 import { FetchConsensusUniprotComponent } from './fetch-consensus-uniprot/fetch-consensus-uniprot.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,6 +42,10 @@ import { FilterPipe } from './shared/filter.pipe';
     HttpClientModule,
     FormsModule,
     NgParticlesModule,
+    MatSliderModule,
+    MatCardModule,
+    MatButtonModule,
+    MatPaginatorModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -40,7 +53,8 @@ import { FilterPipe } from './shared/filter.pipe';
       { path: 'fetch-consensus-uniprot', component: FetchConsensusUniprotComponent },
       { path: 'Login', component: LoginComponent }, // added component
       { path: 'search', component: SearchComponent } // added component
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

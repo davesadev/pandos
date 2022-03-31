@@ -1,20 +1,23 @@
 
-<h5>Please enter the uniprot ID below and hit enter </h5>
+<h2>Please enter the uniprot ID below and hit enter </h2>
 <br>
+
+
+
 
 <!-- dummy code for search bar -->
 <!-- <input #myTitle (keyup)="onClicked(myTitle.value)"> -->
 
-<h2> Section for real time filter search</h2>
+<!-- <h2> Section for real time filter search</h2> -->
 <!-- <h2> Section for real time filter (needs to store all data locally (e.g. all uniprots) so maybe not the best option</h2> -->
 <div class="md-form">
   <input type="search" [(ngModel)]="searchText">
 <!-- let uniprotID of input? -->
   <!-- <li *ngFor="let item of categories | filter : searchText : 'categoryName'"> -->
-  <li *ngFor="let uniprot of uniprots | filter : searchText : 'uniprotID'">
+  <!-- <li *ngFor="let uniprot of uniprots | filter : searchText : 'uniprotID'">
     {{uniprot.uniprotID}}
-    <!-- {{item.categoryName}} -->
-  </li>
+        <!-- {{item.categoryName}} -->
+  <!-- </li> -->
    <!-- placeholder="Search text"> -->
 </div>
 <!-- <ul *ngFor="let uniprot of uniprots | filter: searchText">
@@ -35,18 +38,25 @@
 <table class='table table-' aria-labelledby="tableLabel" *ngIf="uniprots">
   <thead>
     <tr>
-      <th>uniprot_id</th>
-      <th>accession_number</th>
-      <th>entry_status</th>
-      <th>sequence</th>
+      <mat-card>
+        <th>uniprot_id</th>
+        <th>accession_number</th>
+        <th>entry_status</th>
+        <th>sequence</th>
+      </mat-card>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let uniprot of uniprots">
-      <td>{{ uniprot.uniprotId }}</td>
-      <td>{{ uniprot.accessionNumber }}</td>
-      <td>{{ uniprot.entryStatus }}</td>
-      <td>{{ uniprot.sequence }}</td>
+
+        <td>{{ uniprot.uniprotId }}</td>
+        <td>{{ uniprot.accessionNumber }}</td>
+        <td>{{ uniprot.entryStatus }}</td>
+        <td>{{ uniprot.sequence }}</td>
     </tr>
   </tbody>
 </table>
+
+<mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+</mat-paginator>
+1

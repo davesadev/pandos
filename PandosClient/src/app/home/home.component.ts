@@ -8,6 +8,7 @@ import { Container, Main } from 'tsparticles';
 })
 export class HomeComponent {
   title = "Protein Annotated Domains Database";
+  rawfmfq: string = ' '
 
 
   // code for testing particle background
