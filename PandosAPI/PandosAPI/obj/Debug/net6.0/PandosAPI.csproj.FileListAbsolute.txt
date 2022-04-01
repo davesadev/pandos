@@ -268,4 +268,4 @@ C:\Users\david\Documents\GitHub\pandos-dotnet\PandosAPI\PandosAPI\obj\Debug\net6
 C:\Users\david\Documents\GitHub\pandos-dotnet\PandosAPI\PandosAPI\obj\Debug\net6.0\ref\PandosAPI.dll
 C:\Users\david\Documents\GitHub\pandos-dotnet\PandosAPI\PandosAPI\obj\Debug\net6.0\PandosAPI.pdb
 C:\Users\david\Documents\GitHub\pandos-dotnet\PandosAPI\PandosAPI\obj\Debug\net6.0\PandosAPI.genruntimeconfig.cache
-C:\Users\david\Documents\GitHub\pandos-dotnet\PandosAPI\PandosAPI\obj\Debug\net6.0\refint\PandosAPI.dll
+C:\Users\david\Documents\GitHub\pandos-dotnet\PandosAPI\PandosAPI\bin\Debug\net6.0\ref\PandosAPI.dll

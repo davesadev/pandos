@@ -9,6 +9,12 @@ namespace PandosAPI.Models
     [Table("uniprot")]
     public partial class Uniprot
     {
+        public Uniprot()
+        {
+            PdbChains = new HashSet<PdbChain>();
+            Pdbs = new HashSet<Pdb>();
+        }
+
         [Key]
         [Column("uniprot_id")]
         [StringLength(20)]
@@ -26,5 +32,10 @@ namespace PandosAPI.Models
         [StringLength(2000)]
         [Unicode(false)]
         public string? Sequence { get; set; }
+
+        [InverseProperty(nameof(PdbChain.Uniprot))]
+        public virtual ICollection<PdbChain> PdbChains { get; set; }
+        [InverseProperty(nameof(Pdb.Uniprot))]
+        public virtual ICollection<Pdb> Pdbs { get; set; }
     }
 }
