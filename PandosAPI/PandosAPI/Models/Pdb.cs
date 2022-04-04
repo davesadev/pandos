@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace PandosAPI.Models
 {
     [Table("pdb")]
+    [Index("UniprotId", Name = "IX_pdb_uniprot_id")]
     public partial class Pdb
     {
         public Pdb()
@@ -17,17 +18,15 @@ namespace PandosAPI.Models
         [Key]
         [Column("pdb_id")]
         [StringLength(50)]
-        [Unicode(false)]
         public string PdbId { get; set; } = null!;
         [Column("uniprot_id")]
         [StringLength(20)]
-        [Unicode(false)]
         public string UniprotId { get; set; } = null!;
 
-        [ForeignKey(nameof(UniprotId))]
+        [ForeignKey("UniprotId")]
         [InverseProperty("Pdbs")]
         public virtual Uniprot Uniprot { get; set; } = null!;
-        [InverseProperty(nameof(PdbChain.Pdb))]
+        [InverseProperty("Pdb")]
         public virtual ICollection<PdbChain> PdbChains { get; set; }
     }
 }

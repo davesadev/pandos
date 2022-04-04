@@ -5,34 +5,42 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PandosAPI.Models
 {
-    public partial class proteindomainannotationsContext : DbContext
+    public partial class pandosdbContext : DbContext
     {
-        public proteindomainannotationsContext()
+        public pandosdbContext()
         {
         }
 
-        public proteindomainannotationsContext(DbContextOptions<proteindomainannotationsContext> options)
+        public pandosdbContext(DbContextOptions<pandosdbContext> options)
             : base(options)
         {
         }
 
+        public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; } = null!;
         public virtual DbSet<Pdb> Pdbs { get; set; } = null!;
         public virtual DbSet<PdbChain> PdbChains { get; set; } = null!;
         public virtual DbSet<Uniprot> Uniprots { get; set; } = null!;
 
-        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=protein-domain-annotations;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                optionsBuilder.UseMySql("server=localhost;database=pandosdb;user=root;password=admin", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.7.3-mariadb"));
             }
         }
-        */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.UseCollation("utf8mb4_general_ci")
+                .HasCharSet("utf8mb4");
+
+            modelBuilder.Entity<Efmigrationshistory>(entity =>
+            {
+                entity.HasKey(e => e.MigrationId)
+                    .HasName("PRIMARY");
+            });
+
             modelBuilder.Entity<Pdb>(entity =>
             {
                 entity.HasOne(d => d.Uniprot)
@@ -44,7 +52,9 @@ namespace PandosAPI.Models
 
             modelBuilder.Entity<PdbChain>(entity =>
             {
-                entity.HasKey(e => new { e.PdbId, e.PdbChainId });
+                entity.HasKey(e => new { e.PdbId, e.PdbChainId })
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
                 entity.HasOne(d => d.Pdb)
                     .WithMany(p => p.PdbChains)

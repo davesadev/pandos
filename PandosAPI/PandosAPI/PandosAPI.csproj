@@ -14,13 +14,30 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Books\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Books\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Books\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Books\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Books\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BooksMvc\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BooksMvc\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BooksMvc\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BooksMvc\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BooksMvc\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\proteindomainannotations\" />
   </ItemGroup>
 
 </Project>

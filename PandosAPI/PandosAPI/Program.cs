@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -16,14 +19,23 @@ var builder = WebApplication.CreateBuilder(args);
 // NOTE builder.Services is what was called ConfigureServices() in dotnet 5
 var identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddDbContext<proteindomainannotationsContext>(options =>
-    options.UseSqlServer(defaultConnectionString));
+{
+    options.UseMySql(defaultConnectionString, ServerVersion.AutoDetect((defaultConnectionString)));
+});
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseMySql(identityConnectionString, ServerVersion.AutoDetect((identityConnectionString)));
+});
+
+
+// builder.Services.AddDbContext<proteindomainannotationsContext>(options =>
+//    options.UseMySql(defaultConnectionString, ServerVersion.AutoDetect(defaultConnectionString));
 
 // could be renamed IdentityDbContext but that's a stretch goal
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(identityConnectionString));
-
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseMySql(identityConnectionString));
 
 
 // where rules like password limitations are created... can make anon function opt to pass other arguments

@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace PandosAPI.Migrations.proteindomainannotations
+namespace PandosAPI.Migrations
 {
-    public partial class initial4 : Migration
+    public partial class currentdatatomariadb1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
