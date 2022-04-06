@@ -1,0 +1,22 @@
+<a [routerLink]="['../fetch-consensus-uniprot']" target="_self">
+ <mat-card class="pandos-banner-card">
+    <img mat-card-image src="assets\images\Pandos_github_banner.png" alt="Pandos (protein annotation of domain, on steroids) banner">
+  </mat-card>
+</a>
+
+  <mat-card>
+  <mat-card-content>
+    <h2>
+      PANDOS is a database of novel sub-domain annotations of single transmembrane (TM) and 7TM proteins.</h2> <br>
+      <div class="center-horiz">
+        <p>Click the button below to search the database. </p>
+        </div>
+      </mat-card-content>
+  <div class="btn-container">
+    <div class="center-horiz">
+      <mat-card-actions>
+        <a mat-raised-button color="accent" [routerLink]="['./fetch-consensus-uniprot']" target="_self"> Search </a>
+      </mat-card-actions>
+    </div>
+  </div>
+</mat-card>

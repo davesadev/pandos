@@ -16,3 +16,17 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+.pandos-home-button {
+    max-width: 150px;
+
+ }
+
+ .center-horiz {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  /* left: 50%; */
+  -ms-transform: translateY(-50%, -50%);
+  transform: translateY(-50%, -50%);
+}

@@ -3,8 +3,14 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Pandos Database</a>
-      <button
+      <div class="pandos-home-button center-horiz">
+        <a class="nav-link text-dark" [routerLink]="['/']">
+            <img mat-card-image src="assets\images\pandos_only_letters.png" alt="Pandos (protein annotation of domain, on steroids) banner">
+        </a>
+      </div>
+
+      <!-- <a class="navbar-brand" [routerLink]="['/']">PANDOS</a> -->
+      <!-- <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -14,7 +20,7 @@
         (click)="toggle()"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
         [ngClass]="{ show: isExpanded }"
@@ -25,7 +31,9 @@
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <div class="pandos-home-button">
+              <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            </div>
           </li>
           <!-- <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
@@ -34,7 +42,7 @@
           </li> -->
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-consensus-uniprot']"
-              >Uniprot Consensus Data</a
+              >Search by uniprot</a
             >
           </li>
           <!-- added element -->
