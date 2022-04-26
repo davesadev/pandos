@@ -10,12 +10,12 @@ export class FetchDataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUniprots() {
-    return this.httpClient.get('https://localhost:7165/Uniprots/');
-  }
   getUniprotsById(id: string): Observable<Uniprot[]> {
+    // const baseUrl: string = 'https://localhost:7165/api/Uniprots/';
+    const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
 
-    const baseUrl = 'https://localhost:7165/api/Uniprots/';
+    return this.httpClient.get<Uniprot[]>(baseUrl + id);
+
     let token = localStorage.getItem("jwt");
     console.log("this should be the jwt: " + token); // debugging
     // http.get<Uniprot[]>('https://localhost:7165/api/Uniprots', { // TODO: what is this value?
@@ -27,10 +27,41 @@ export class FetchDataService {
     // }, error => console.error(error));
 
     console.log(baseUrl + id);
-    return this.httpClient.get<Uniprot[]>(baseUrl + id);
+    // return this.httpClient.get<Uniprot[]>(baseUrl + id);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  getUniprots() {
+    return this.httpClient.get('https://localhost:7165/Uniprots/');
   }
 
   getSingleUniprot(id: string): Observable<Uniprot> {
+    console.log("The value of id is: " + id);
     const baseUrl = 'https://localhost:7165/api/Uniprots/';
     return this.httpClient.get<Uniprot>(baseUrl + id);
   }

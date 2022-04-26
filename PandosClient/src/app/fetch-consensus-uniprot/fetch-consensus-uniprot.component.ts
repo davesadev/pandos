@@ -42,7 +42,7 @@ export class FetchConsensusUniprotComponent implements OnInit {
    public uniprots: Uniprot[] = [];
    public uniprot: Uniprot | undefined;
 
-
+// *
    callGetService(id: string) {
     // debugging
     console.log("the uniprot id sent is: " + id);
@@ -50,12 +50,14 @@ export class FetchConsensusUniprotComponent implements OnInit {
     this.fetchDataService.getUniprotsById(id).subscribe(data => {  // todo: is this ever called? or just ngOnInit?
       this.uniprots = data;
     // this.fetchDataService.sendGetReqWithParams(id).subscribe(data => {  // todo: is this ever called? or just ngOnInit?
-      // this.uniprot = data;
-      console.log(this.uniprots);  // debugging
+    //   this.uniprot = data;
+
+      // this.fetchDataService.getSingleUniprot(id).subscribe(data => {  // todo: is this ever called? or just ngOnInit?
+      //   this.uniprot = data;
+      console.log(this.uniprot);  // debugging
     })
   }
 
-  // TODO: hard coded service fetches uniprots by id -- need to figure out how to send id using button and text box
   ngOnInit(): void {
     // this.fetchDataService.getUniprotsById('P07550').subscribe(data => {
     //   this.uniprots = data;

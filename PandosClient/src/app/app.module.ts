@@ -33,6 +33,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import { InfoCardComponent } from './info-card/info-card.component';
 
 
 
@@ -48,6 +49,7 @@ import {MatRadioModule} from '@angular/material/radio';
     FetchConsensusUniprotComponent,
     FilterPipe,
     FancyCardComponent,
+    InfoCardComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
