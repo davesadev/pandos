@@ -1,22 +1,37 @@
+<!--
+  card view class that creates a card with:
+    - large photo background
+    - header and body sections
+    - button for router link
+-->
+
+
+
+
 <a [routerLink]="['./fetch-consensus-uniprot']" target="_self">
   <mat-card class="pandos-banner-card">
-     <img mat-card-image src={{imagePath}} alt="Pandos (protein annotation of domain, on steroids) banner">
+     <img mat-card-image src={{ imagePath }} alt="Pandos (protein annotation of domain, on steroids) banner">
    </mat-card>
- </a>
+</a>
 
-   <mat-card>
-   <mat-card-content>
-     <h2>
-       {{cardTitle}}</h2> <br>
-       <div class="center-horiz">
-         <p> {{body}} </p>
-         </div>
-       </mat-card-content>
-   <div class="btn-container">
-     <div class="center-horiz">
-       <mat-card-actions>
-         <a mat-raised-button color="accent" [routerLink]="['./fetch-consensus-uniprot']" target="_self"> Search </a>
-       </mat-card-actions>
-     </div>
-   </div>
- </mat-card>
+<mat-card>
+  <mat-card-content>
+  <!-- title -->
+    <h2> {{ cardTitle }}</h2> <br>
+
+    <div class="center-horiz">
+  <!-- body -->
+        <p> {{ body }} </p>
+    </div>
+  </mat-card-content>
+
+  <!-- button -->
+  <div class="btn-container">
+    <div class="center-horiz">
+      <mat-card-actions>
+  <!-- button router addres -->
+        <a mat-raised-button color="accent" [routerLink]="['./fetch-consensus-uniprot']" target="_self"> Search </a>
+      </mat-card-actions>
+    </div>
+  </div>
+</mat-card>

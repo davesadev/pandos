@@ -1,0 +1,765 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PandosAPI",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/Login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/Create": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "UserName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Password",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/PdbChains": {
+      "get": {
+        "tags": [
+          "PdbChains"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PdbChain"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PdbChains"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PdbChain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PdbChain"
+            }
+          }
+        }
+      }
+    },
+    "/api/PdbChains/{id}": {
+      "get": {
+        "tags": [
+          "PdbChains"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PdbChain"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PdbChains"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PdbChain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PdbChains"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Pdbs": {
+      "get": {
+        "tags": [
+          "Pdbs"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pdb"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pdbs"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Pdb"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Pdb"
+            }
+          }
+        }
+      }
+    },
+    "/api/Pdbs/{id}": {
+      "get": {
+        "tags": [
+          "Pdbs"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Pdb"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Pdbs"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Pdb"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pdbs"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Uniprots": {
+      "get": {
+        "tags": [
+          "Uniprots"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Uniprot"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Uniprots"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Uniprot"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Uniprot"
+            }
+          }
+        }
+      }
+    },
+    "/api/Uniprots/{id}": {
+      "get": {
+        "tags": [
+          "Uniprots"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Uniprot"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Uniprots"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Uniprot"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Uniprots"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/WeatherDetails": {
+      "get": {
+        "tags": [
+          "WeatherDetails"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "WeatherDetails"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/WeatherDetails/{id}": {
+      "get": {
+        "tags": [
+          "WeatherDetails"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "WeatherDetails"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "WeatherDetails"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecast"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Pdb": {
+      "type": "object",
+      "properties": {
+        "pdbId": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "uniprotId": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "uniprot": {
+          "$ref": "#/definitions/Uniprot"
+        },
+        "pdbChains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PdbChain"
+          }
+        }
+      }
+    },
+    "PdbChain": {
+      "type": "object",
+      "properties": {
+        "pdbId": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "pdbChainId": {
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string"
+        },
+        "uniprotId": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "pdbSequence": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "headDomain": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "hingeDomain": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "stalkDomain": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "neckDomain": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "transmembraneDomain": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "cytoplasmicDomain": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "pdb": {
+          "$ref": "#/definitions/Pdb"
+        },
+        "uniprot": {
+          "$ref": "#/definitions/Uniprot"
+        }
+      }
+    },
+    "Uniprot": {
+      "type": "object",
+      "properties": {
+        "uniprotId": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "accessionNumber": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "entryStatus": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "sequence": {
+          "maxLength": 2000,
+          "minLength": 0,
+          "type": "string"
+        },
+        "pdbChains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PdbChain"
+          }
+        },
+        "pdbs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pdb"
+          }
+        }
+      }
+    },
+    "UserDto": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "WeatherForecast": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "temperatureC": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "temperatureF": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": { }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

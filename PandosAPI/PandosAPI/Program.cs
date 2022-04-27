@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.WindowsAzure.Management.Sql;
+using MySqlConnector;
 using Microsoft.OpenApi.Models;
-using System.Text;
 using PandosAPI.Identity;
 using PandosAPI.Models;
+using Microsoft.EntityFrameworkCore.Design;
+
 
 var MyAllowSpecificOrigins = "AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()";
 
@@ -17,18 +16,32 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 // NOTE builder.Services is what was called ConfigureServices() in dotnet 5
-var identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
+// var identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<proteindomainannotationsContext>(options =>
+builder.Services.AddDbContext<pandosdbContext>(options =>
 {
-    options.UseMySql(defaultConnectionString, ServerVersion.AutoDetect((defaultConnectionString)));
+//    options.UseMySql(defaultConnectionString, ServerVersion.AutoDetect((defaultConnectionString)));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    /*
+    options.UseSqlServer(builder.Configuration["defaultConnectionString"],
+        sqlServerOptionsAction: sqlOptions =>
+        {
+            sqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(30),
+                errorNumbersToAdd: null);
+        }
+    );
+
+    */
 });
 
+/*
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseMySql(identityConnectionString, ServerVersion.AutoDetect((identityConnectionString)));
 });
-
+*/
 
 // builder.Services.AddDbContext<proteindomainannotationsContext>(options =>
 //    options.UseMySql(defaultConnectionString, ServerVersion.AutoDetect(defaultConnectionString));
@@ -37,8 +50,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    options.UseMySql(identityConnectionString));
 
-
+// commented out bc identity not functional
 // where rules like password limitations are created... can make anon function opt to pass other arguments
+/*
 builder.Services.AddIdentityCore<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -64,6 +78,8 @@ builder.Services.AddAuthentication(opt =>
 
         };
     });
+
+*/
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
@@ -115,7 +131,7 @@ builder.Services.AddControllers();
 
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

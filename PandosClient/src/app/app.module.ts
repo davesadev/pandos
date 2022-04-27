@@ -5,26 +5,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgParticlesModule } from "ng-particles";
 import { MatSliderModule } from '@angular/material/slider';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
+// import { MatFormFieldModule, MatErrorModule, MatHintModule, MatLabelModule } from '@angular/material/form-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { MatInputModule } from '@angular/material/input';
 
-
+// todo: maybe delete below
+import { SearchBase, SearchComponent } from '@appbaseio/searchbase';
 
 
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-// import { ClientUIComponent } from './client-ui/client-ui.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login-component';
-import { SearchComponent } from './search/search.component';
 import { FetchConsensusUniprotComponent } from './fetch-consensus-uniprot/fetch-consensus-uniprot.component';
+
 import { FilterPipe } from './shared/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FancyCardComponent } from './fancy-card/fancy-card.component';
@@ -34,6 +34,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { InfoCardComponent } from './info-card/info-card.component';
+import { ElasticSearchComponent } from './elastic-search/elastic-search.component';
+// import { ElasticSearchComponent } from './elastic-search/elastic-search.component';
+// import { SearchControllerComponent } from './search-controller/search-controller.component';
+// import { }
 
 
 
@@ -42,14 +46,14 @@ import { InfoCardComponent } from './info-card/info-card.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    SearchComponent,
     FetchConsensusUniprotComponent,
     FilterPipe,
     FancyCardComponent,
     InfoCardComponent,
+    // ElasticSearchComponent,
+    // SearchControllerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -61,6 +65,9 @@ import { InfoCardComponent } from './info-card/info-card.component';
     MatButtonModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    // MatErrorModule,
+    // MatHintModule,
+    // MatLabelModule,
     ReactiveFormsModule,
     MatInputModule,
     MatProgressBarModule,
@@ -68,17 +75,17 @@ import { InfoCardComponent } from './info-card/info-card.component';
     MatIconModule,
     MatCheckboxModule,
     MatRadioModule,
+    // SearchBase,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fetch-consensus-uniprot', component: FetchConsensusUniprotComponent },
       { path: 'Login', component: LoginComponent }, // added component
-      { path: 'search', component: SearchComponent } // added component
+      // { path: 'search', component: SearchComponent } // added component
     ]),
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ElasticSearchComponent]
 })
 export class AppModule { }

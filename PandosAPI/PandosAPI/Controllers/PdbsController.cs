@@ -14,9 +14,9 @@ namespace PandosAPI.Controllers
     [ApiController]
     public class PdbsController : ControllerBase
     {
-        private readonly proteindomainannotationsContext _context;
+        private readonly pandosdbContext _context;
 
-        public PdbsController(proteindomainannotationsContext context)
+        public PdbsController(pandosdbContext context)
         {
             _context = context;
         }

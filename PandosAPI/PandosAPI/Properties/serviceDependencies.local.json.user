@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "compute.appService1": {
+      "restored": true,
+      "restoreTime": "2022-04-19T23:56:30.1657891Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2022-04-18T22:20:16.6460779Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2022-04-18T22:20:01.913043Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "84833d42-4f32-4e85-a2e4-97b2a258f50f"
+    },
+    "compute.appService1.subscriptionId": {
+      "Name": "compute.appService1.subscriptionId",
+      "Type": "subscription",
+      "Value": "84833d42-4f32-4e85-a2e4-97b2a258f50f"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "PandosAPIWinResourceGroup"
+    },
+    "compute.appService1.resourceGroupName": {
+      "Name": "compute.appService1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "PandosAPI20220417210406ResourceGroup"
+    }
+  }
+}

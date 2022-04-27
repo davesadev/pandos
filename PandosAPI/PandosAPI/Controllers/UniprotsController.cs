@@ -14,9 +14,9 @@ namespace PandosAPI.Controllers
     [ApiController]
     public class UniprotsController : ControllerBase
     {
-        private readonly proteindomainannotationsContext _context;
+        private readonly pandosdbContext _context;
 
-        public UniprotsController(proteindomainannotationsContext context)
+        public UniprotsController(pandosdbContext context)
         {
             _context = context;
         }
