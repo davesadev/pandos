@@ -10,12 +10,39 @@ export class FetchDataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUniprotsById(id: string): Observable<Uniprot[]> {
-    // const baseUrl: string = 'https://localhost:7165/api/Uniprots/';
+  getPdbById(id?: string): Observable<Uniprot> {
+    const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbs/';
+    return this.httpClient.get<Pdb>(baseUrl + id);
+  }
+
+  getUniprotsById(id?: string): Observable<Uniprot> {
     const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
+    return this.httpClient.get<Uniprot>(baseUrl + id);
+  }
 
-    return this.httpClient.get<Uniprot[]>(baseUrl + id);
+}
+interface Uniprot {
+  uniprotId: string;
+  accessionNumber: string;
+  entryStatus : string;
+  sequence: string;
+}
 
+// todo
+interface Pdb {
+  uniprotId: string;
+  accessionNumber: string;
+  entryStatus : string;
+  sequence: string;
+}
+
+// todo: if using authentication, use parameters of get method below (with tweaking)
+
+/*
+*  getUniprotsById(id?: string): Observable<Uniprot> {
+    const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
+    return this.httpClient.get<Uniprot>(baseUrl + id);
+    /*
     let token = localStorage.getItem("jwt");
     console.log("this should be the jwt: " + token); // debugging
     // http.get<Uniprot[]>('https://localhost:7165/api/Uniprots', { // TODO: what is this value?
@@ -28,61 +55,7 @@ export class FetchDataService {
 
     console.log(baseUrl + id);
     // return this.httpClient.get<Uniprot[]>(baseUrl + id);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  getUniprots() {
-    return this.httpClient.get('https://localhost:7165/Uniprots/');
-  }
-
-  getSingleUniprot(id: string): Observable<Uniprot> {
-    console.log("The value of id is: " + id);
-    const baseUrl = 'https://localhost:7165/api/Uniprots/';
-    return this.httpClient.get<Uniprot>(baseUrl + id);
-  }
-
-
-  public sendGetReqWithParams(id: string) {
-    let idnew: string = id;
-    const baseURL = 'https://localhost:7165/api/Uniprots/';
-    //              'https://localhost:7165/api/Uniprots/P07550'
-    // let params = new HttpParams()
-    //   .set('id', id);
-    // console.log("id is " + idnew + " aka " + idnew.toString());
-    console.log(baseURL + id);
-    return this.httpClient.get<Uniprot>(baseURL + idnew);
-  }
-
 
 }
-interface Uniprot {
-  uniprotId: string;
-  accessionNumber: string;
-  entryStatus : string;
-  sequence: string;
-}
+
+ */

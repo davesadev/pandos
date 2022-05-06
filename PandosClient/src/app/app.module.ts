@@ -10,31 +10,31 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 // import { MatFormFieldModule, MatErrorModule, MatHintModule, MatLabelModule } from '@angular/material/form-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { MatInputModule } from '@angular/material/input';
 
 // todo: maybe delete below
-import { SearchBase, SearchComponent } from '@appbaseio/searchbase';
-
-
+// import { SearchBase, SearchComponent } from '@appbaseio/searchbase';
 
 import { AppComponent } from './app.component';
+
+import { InfoCardComponent } from './info-card/info-card.component';
+import { FancyCardComponent } from './fancy-card/fancy-card.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login-component';
+
+import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FetchConsensusUniprotComponent } from './fetch-consensus-uniprot/fetch-consensus-uniprot.component';
+import { ElasticSearchComponent } from './elastic-search/elastic-search.component';
 
 import { FilterPipe } from './shared/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FancyCardComponent } from './fancy-card/fancy-card.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
-import { InfoCardComponent } from './info-card/info-card.component';
-import { ElasticSearchComponent } from './elastic-search/elastic-search.component';
+import { SimpleCardComponent } from './simple-card/simple-card.component';
 // import { ElasticSearchComponent } from './elastic-search/elastic-search.component';
 // import { SearchControllerComponent } from './search-controller/search-controller.component';
 // import { }
@@ -52,6 +52,8 @@ import { ElasticSearchComponent } from './elastic-search/elastic-search.componen
     FilterPipe,
     FancyCardComponent,
     InfoCardComponent,
+    ElasticSearchComponent,
+    SimpleCardComponent
     // ElasticSearchComponent,
     // SearchControllerComponent
   ],

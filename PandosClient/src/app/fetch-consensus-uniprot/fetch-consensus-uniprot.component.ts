@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { FetchDataService } from '../fetch-data.service'
-// import { MatLabel } from
 
 
 @Component({
@@ -11,62 +9,55 @@ import { FetchDataService } from '../fetch-data.service'
   styleUrls: ['./fetch-consensus-uniprot.component.html']
 })
 export class FetchConsensusUniprotComponent implements OnInit {
-
-  checked = false;
-  indeterminate = false;
-  labelPosition: 'before' | 'after' = 'after';
-  disabled = false;
-
-  primarySearch = undefined;
-
-  corr_uniprots = false;
-  corr_pdbs= false;
-  corr_pdb_chains = false;
-
-  singleObjectResult = false; // todo: have this be a factor later when displaying single data point or array
-
+  primarySearch: string | undefined;
   uniprotID = "";
-  searchText = "";
-  constructor(http: HttpClient, private fetchDataService: FetchDataService) {
-    // let token = localStorage.getItem("jwt");
-    // console.log("this should be the jwt: ${token}"); // debugging
-    // http.get<Uniprot[]>('https://localhost:7165/api/Uniprots', {
-    //   headers: {
-    //     "Authorization": `Bearer ${token}`
-    //   }
-    // }).subscribe(result => {
-    //   this.uniprots= result;
-    // }, error => console.error(error));
-   }
+  pdbID = "";
 
-// new attempt
-   public uniprots: Uniprot[] = [];
-   public uniprot: Uniprot | undefined;
 
-// *
-   callGetService(id: string) {
-    // debugging
-    console.log("the uniprot id sent is: " + id);
+  constructor(http: HttpClient, private fetchDataService: FetchDataService) { }
 
-    this.fetchDataService.getUniprotsById(id).subscribe(data => {  // todo: is this ever called? or just ngOnInit?
-      this.uniprots = data;
-    // this.fetchDataService.sendGetReqWithParams(id).subscribe(data => {  // todo: is this ever called? or just ngOnInit?
-    //   this.uniprot = data;
+  public uniprots: Uniprot[] = [];
+  public pdbs: Pdb[] = [];
 
-      // this.fetchDataService.getSingleUniprot(id).subscribe(data => {  // todo: is this ever called? or just ngOnInit?
-      //   this.uniprot = data;
-      console.log(this.uniprot);  // debugging
+
+  // GET UNIPROT function -- returns array of uniprot objects
+  callServiceGetUniprots(id?: string) {
+    this.fetchDataService.getUniprotsById(id).subscribe(data => {
+         // if no id passed, don't cast return array to array -- typescript evaluates "" to false -- ignore ts because linter misinterpreting context
+      if (!id) { // @ts-ignore
+        this.uniprots = data;
+      }  // else: looking for specific id, cast result to array for front end parsing
+      else {
+        this.uniprots = [data];
+      }
+      console.log(this.uniprots);  // debugging
     })
   }
 
-  ngOnInit(): void {
-    // this.fetchDataService.getUniprotsById('P07550').subscribe(data => {
-    //   this.uniprots = data;
-    // })
+  callServiceGetPdb(id?: string) {
+    this.fetchDataService.getPdbById(id).subscribe(data => {
+      // if no id passed, don't cast return array to array -- typescript evaluates "" to false -- ignore ts because linter misinterpreting context
+      if (!id) { // @ts-ignore
+        this.pdbs = data;
+      }  // else: looking for specific id, cast result to array for front end parsing
+      else {
+        this.pdbs = [data];
+      }
+      console.log(this.pdbs);  // debugging
+    })
   }
+
+  ngOnInit(): void { }
 }
 
 interface Uniprot {
+  uniprotId: string;
+  accessionNumber: string;
+  entryStatus : string;
+  sequence: string;
+}
+
+interface Pdb {
   uniprotId: string;
   accessionNumber: string;
   entryStatus : string;
