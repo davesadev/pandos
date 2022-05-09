@@ -34,8 +34,9 @@ export class FetchConsensusUniprotComponent implements OnInit {
     })
   }
 
+  // GET PDB call -- returns array of pdb objects
   callServiceGetPdb(id?: string) {
-    this.fetchDataService.getPdbById(id).subscribe(data => {
+    this.fetchDataService.getPdbsById(id).subscribe(data => {
       // if no id passed, don't cast return array to array -- typescript evaluates "" to false -- ignore ts because linter misinterpreting context
       if (!id) { // @ts-ignore
         this.pdbs = data;
@@ -58,8 +59,8 @@ interface Uniprot {
 }
 
 interface Pdb {
-  uniprotId: string;
-  accessionNumber: string;
-  entryStatus : string;
-  sequence: string;
+  pdbId: string;
+  uniprotId : string;
+  uniprot: string;
+  pdbChains: string;
 }

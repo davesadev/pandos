@@ -1,17 +1,13 @@
-<h1>Search by uniprot id </h1>
-<h3>Enter the uniprot ID below and hit enter </h3>
-<br>
-
+<h2>Enter the search criteria to find Pdb chain information </h2>
 
 <!-- * INPUT PARAMETERS CARD *-->
 <mat-card>
   <mat-card-content>
-    <h2 class="example-h2">Search parameters</h2>
 
+    <!-- radio-button-group for uniprot/pdb control flow option -->
     <section class="example-section">
       <label class="example-margin">I'd like to find pdb chains associated with a/an: </label>
       <mat-radio-group [(ngModel)]="primarySearch">
-<!--        primarySearch="uniprot">Uniprot </mat-radio-button>-->
         <mat-radio-button class="example-margin" [value]="'uniprot'"> Uniprot  </mat-radio-button>
         <mat-radio-button class="example-margin" [value]="'pdb'">Pdb </mat-radio-button>
       </mat-radio-group>
@@ -48,23 +44,83 @@
 </mat-card>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="search-output" *ngIf="primarySearch=='pdb'; else uniprotResultsHandling">
+    <ul>
+      <li *ngFor="let pdb of pdbs">
+        <app-simple-card [cardTitle]="'Pdb ID: ' + pdb.pdbId"
+                         [body]="'Pdb Chains: ' + pdb.pdbChains">
+        </app-simple-card>
+      </li>
+    </ul>
+</div>
+
+<!-- * UNIPROT SEARCH RESULTS *-->
+<ng-template #uniprotResultsHandling>
+  <ul>
+    <li *ngFor="let uniprot of uniprots">
+      <app-simple-card [cardTitle]="'Uniprot ID: ' + uniprot.uniprotId"
+                        [body]="'Sequence: ' + uniprot.sequence">
+      </app-simple-card>
+    </li>
+  </ul>
+
+</ng-template>
+
+
+
+
+
+
+
+
 <!-- * END PARAMETERS CARD *-->
 <br>
 <!-- OUTPUT -->
-<div class="search-output" *ngIf="uniprots else loading">
+<!-- <div class="search-output" *ngIf="uniprots else loading">
   <ul>
     <li *ngFor="let uniprot of uniprots">
       <app-simple-card [cardTitle]="'Uniprot ID: ' + uniprot.uniprotId"
                        [body]="'Sequence: ' + uniprot.sequence">
       </app-simple-card>
     </li>
-  </ul></div>
+  </ul>
+</div>
 
 <ng-template #loading>
   <div>Loading...</div>
   <mat-progress-bar mode="buffer"></mat-progress-bar>
-</ng-template>
+</ng-template> -->
 
+
+
+<!-- pdb -->
+<!-- <div class="pdb-search-output" *ngIf="pdbs else loading">
+  <ul>
+    <li *ngFor="let pdb of pdbs">
+      <app-simple-card [cardTitle]="'Pdb ID: ' + pdb.pdbId"
+                       [body]="'Pdb Chains: ' + pdb.pdbChains">
+      </app-simple-card>
+    </li>
+  </ul>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+  <mat-progress-bar mode="buffer"></mat-progress-bar>
+</ng-template> -->
 
 <!---->
 <!---->

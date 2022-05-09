@@ -10,7 +10,7 @@ export class FetchDataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPdbById(id?: string): Observable<Uniprot> {
+  getPdbsById(id?: string): Observable<Pdb> {
     const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbs/';
     return this.httpClient.get<Pdb>(baseUrl + id);
   }
@@ -28,15 +28,15 @@ interface Uniprot {
   sequence: string;
 }
 
-// todo
+// todo -- verify correct
 interface Pdb {
-  uniprotId: string;
-  accessionNumber: string;
-  entryStatus : string;
-  sequence: string;
+  pdbId: string;
+  uniprotId : string;
+  uniprot: string;
+  pdbChains: string;
 }
 
-// todo: if using authentication, use parameters of get method below (with tweaking)
+// if using authentication, use parameters of get method below (with tweaking)
 
 /*
 *  getUniprotsById(id?: string): Observable<Uniprot> {
