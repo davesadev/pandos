@@ -1,7 +1,7 @@
 
 ![Github_banner](github-images/Pandos_github_banner.png)
 
-# PANDoS
+# PANDOS
 is a fullstack web app that organizes novel protein domain information. 
 The application's frontend and backend are [deployed](http://titin.abrol.csun.edu/pandos/) on an apache server.
 
@@ -35,9 +35,6 @@ A web-based searchable database containing membrane fasta (mfta) files enriched 
 * start back end:
   * cd ../PandosAPI/PandosAPI
   * dotnet build
-
-
-#### Don't forget to migrate tables/data onto local mariadb server
 
 
 
