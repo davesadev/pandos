@@ -6,7 +6,7 @@
 
     <!-- radio-button-group for uniprot/pdb control flow option -->
     <section class="example-section">
-      <label class="example-margin">I'd like to find pdb chains associated with a/an: </label>
+      <label class="example-margin">Search for pdb chains associated with a/an: </label>
       <mat-radio-group [(ngModel)]="primarySearch">
         <mat-radio-button class="example-margin" [value]="'uniprot'"> Uniprot  </mat-radio-button>
         <mat-radio-button class="example-margin" [value]="'pdb'">Pdb </mat-radio-button>
@@ -40,23 +40,25 @@
     </ng-template>
 
   </mat-card-content>
-  <!-- * search button * -->
 </mat-card>
 
+<!-- control flow notes: always going to print pdb chains
+     have polymorphic function that takes in either uniprots or pdbs 
+     and prints out all the chain information   -->
+
+
+<!-- DYNAMIC OUTPUT -->
+<!-- if pdb is selected, listens for pdbs array and prints when availble -->
+<!-- template also clears results when new query entered -->
+
+<!-- showing loading bar if querying -- set in .ts callService... functions-->
+<div *ngIf="querying">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+<!-- PDB SEARCH RESULTS -->
 <div class="search-output" *ngIf="primarySearch=='pdb'; else uniprotResultsHandling">
     <ul>
       <li *ngFor="let pdb of pdbs">
@@ -86,8 +88,20 @@
 
 
 
+
+
+
+
+<!-- <ng-container *ngIf="foo === 1;else second"></ng-container>
+<ng-template #second>
+    <ng-container *ngIf="foo === 2;else third"></ng-container>
+</ng-template>
+<ng-template #third></ng-template> -->
+
+
+
+
 <!-- * END PARAMETERS CARD *-->
-<br>
 <!-- OUTPUT -->
 <!-- <div class="search-output" *ngIf="uniprots else loading">
   <ul>

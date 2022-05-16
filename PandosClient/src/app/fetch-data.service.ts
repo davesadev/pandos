@@ -11,11 +11,13 @@ export class FetchDataService {
   constructor(private httpClient: HttpClient) { }
 
   getPdbsById(id?: string): Observable<Pdb> {
+    // const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbs/';
     const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbs/';
     return this.httpClient.get<Pdb>(baseUrl + id);
   }
 
   getUniprotsById(id?: string): Observable<Uniprot> {
+    // const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
     const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
     return this.httpClient.get<Uniprot>(baseUrl + id);
   }
