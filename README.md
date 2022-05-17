@@ -20,7 +20,7 @@ A web-based searchable database containing membrane fasta (mfta) files enriched 
 |                            | Front end                        |                       Back end                       |                               Database |
 | -------------------------- | :------------------------------- | :--------------------------------------------------: | -------------------------------------: |
 | Languages/<br />Frameworks | Angular 12, Material-UI          | C#, .NET Entity Framework, Object Relational Mapping |                     Azure SQL Database |
-| Software                   | VS Code                          |                    Visual Studio                     | Sequel Studio Management Server (SSMS) |
+| Software                   | VS Code, Webstorm                |         Visual Studio, Swagger, Postman              | Sequel Studio Management Server (SSMS) |
 | Deployment method          | Self hosted remote Apache server |                  Azure App Services                  |                   Azure Cloud Database |
 
 
