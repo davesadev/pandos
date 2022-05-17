@@ -30,10 +30,6 @@ Navigate to parent dir and clone repo
 
 
 ```bash
-
-```
-
-```bash
 git clone https://github.com/dmw01/pandos-dotnet.git;
 cd pandos-dotnet;
 ```
@@ -43,6 +39,29 @@ Install dependancies
 ```bash
 nvm install --lts;
 npm install dotnet;
+```
+
+Create appsettings.json file
+```bash
+touch appsettings.json;
+nano appsettings.json
+```
+
+Paste in the following code with your own local database credentials
+``` json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=<your_server_name_here>,<server_port>;Database=<database_name>;User ID=<username_credentials>;Password=<credentials_password>;Encrypt=true;Connection Timeout=30;"
+
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
 ```
 
 Run pandos backend executible (windows required) 
