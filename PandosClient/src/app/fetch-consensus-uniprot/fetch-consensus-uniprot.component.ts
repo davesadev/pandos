@@ -12,16 +12,23 @@ export class FetchConsensusUniprotComponent implements OnInit {
   primarySearch: string | undefined;
   uniprotID = "";
   pdbID = "";
+  querying: Boolean = false;
+
 
 
   constructor(http: HttpClient, private fetchDataService: FetchDataService) { }
+  ngOnInit(): void {
+  }
 
   public uniprots: Uniprot[] = [];
   public pdbs: Pdb[] = [];
 
 
+
   // GET UNIPROT function -- returns array of uniprot objects
+  // sets this.querying before and after query for loading bar
   callServiceGetUniprots(id?: string) {
+    this.querying = true;
     this.fetchDataService.getUniprotsById(id).subscribe(data => {
          // if no id passed, don't cast return array to array -- typescript evaluates "" to false -- ignore ts because linter misinterpreting context
       if (!id) { // @ts-ignore
@@ -31,11 +38,14 @@ export class FetchConsensusUniprotComponent implements OnInit {
         this.uniprots = [data];
       }
       console.log(this.uniprots);  // debugging
+      this.querying = false;  
     })
   }
 
   // GET PDB call -- returns array of pdb objects
+  // sets this.querying before and after query for loading bar
   callServiceGetPdb(id?: string) {
+    this.querying = true;
     this.fetchDataService.getPdbsById(id).subscribe(data => {
       // if no id passed, don't cast return array to array -- typescript evaluates "" to false -- ignore ts because linter misinterpreting context
       if (!id) { // @ts-ignore
@@ -45,10 +55,11 @@ export class FetchConsensusUniprotComponent implements OnInit {
         this.pdbs = [data];
       }
       console.log(this.pdbs);  // debugging
+      
+      this.querying = false;      
     })
   }
 
-  ngOnInit(): void { }
 }
 
 interface Uniprot {

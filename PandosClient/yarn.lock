@@ -255,21 +255,6 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@appbaseio/analytics@^2.1.0-beta":
-  "integrity" "sha512-99e7SkDVoFW99PEVnpp9n+MM5u7ZTK9hwVAuOJN9fpR7EkftHYEmvCiPf7HzObweb3PwqFjCQT4597cGNNTOgQ=="
-  "resolved" "https://registry.npmjs.org/@appbaseio/analytics/-/analytics-2.1.0-beta.tgz"
-  "version" "2.1.0-beta"
-  dependencies:
-    "cross-fetch" "^3.0.4"
-
-"@appbaseio/searchbase@^1.8.0":
-  "integrity" "sha512-46R28nKi6fCYTFXcaNgRkylPgvamtC4wbEvGjZ33cIdLqmvZoBq68n2LUz4a88fWc9iUjUtCM7LIKKLAie9aFw=="
-  "resolved" "https://registry.npmjs.org/@appbaseio/searchbase/-/searchbase-1.8.0.tgz"
-  "version" "1.8.0"
-  dependencies:
-    "@appbaseio/analytics" "^2.1.0-beta"
-    "cross-fetch" "^3.1.5"
-
 "@assemblyscript/loader@^0.10.1":
   "integrity" "sha512-H71nDOOL8Y7kWRLqf6Sums+01Q5msqBW2KhDUTemh1tvY04eSkSXrK0uj/4mmY0Xr16/3zyZmsrxN7CKuRbNRg=="
   "resolved" "https://registry.npmjs.org/@assemblyscript/loader/-/loader-0.10.1.tgz"
@@ -2283,13 +2268,6 @@
     "postcss" "^8.3.7"
     "pretty-bytes" "^5.3.0"
 
-"cross-fetch@^3.0.4", "cross-fetch@^3.1.5":
-  "integrity" "sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw=="
-  "resolved" "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.5.tgz"
-  "version" "3.1.5"
-  dependencies:
-    "node-fetch" "2.6.7"
-
 "cross-spawn@^7.0.3":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz"
@@ -2604,7 +2582,7 @@
   "resolved" "https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz"
   "version" "1.0.2"
 
-"encoding@^0.1.0", "encoding@^0.1.12":
+"encoding@^0.1.12":
   "integrity" "sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A=="
   "resolved" "https://registry.npmjs.org/encoding/-/encoding-0.1.13.tgz"
   "version" "0.1.13"
@@ -4159,13 +4137,6 @@
   "integrity" "sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A=="
   "resolved" "https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz"
   "version" "3.2.1"
-
-"node-fetch@2.6.7":
-  "integrity" "sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ=="
-  "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz"
-  "version" "2.6.7"
-  dependencies:
-    "whatwg-url" "^5.0.0"
 
 "node-forge@^0.10.0":
   "integrity" "sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA=="
@@ -5905,11 +5876,6 @@
   "resolved" "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.0.tgz"
   "version" "1.0.0"
 
-"tr46@~0.0.3":
-  "integrity" "sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o="
-  "resolved" "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
-  "version" "0.0.3"
-
 "tree-kill@1.2.2":
   "integrity" "sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A=="
   "resolved" "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz"
@@ -6089,11 +6055,6 @@
   dependencies:
     "defaults" "^1.0.3"
 
-"webidl-conversions@^3.0.0":
-  "integrity" "sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE="
-  "resolved" "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz"
-  "version" "3.0.1"
-
 "webpack-dev-middleware@^5.2.1", "webpack-dev-middleware@5.2.1":
   "integrity" "sha512-Kx1X+36Rn9JaZcQMrJ7qN3PMAuKmEDD9ZISjUj3Cgq4A6PtwYsC4mpaKotSRYH3iOF6HsUa8viHKS59FlyVifQ=="
   "resolved" "https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-5.2.1.tgz"
@@ -6199,14 +6160,6 @@
   "integrity" "sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg=="
   "resolved" "https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.4.tgz"
   "version" "0.1.4"
-
-"whatwg-url@^5.0.0":
-  "integrity" "sha1-lmRU6HZUYuN2RNNib2dCzotwll0="
-  "resolved" "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz"
-  "version" "5.0.0"
-  dependencies:
-    "tr46" "~0.0.3"
-    "webidl-conversions" "^3.0.0"
 
 "which@^1.2.1":
   "integrity" "sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ=="
