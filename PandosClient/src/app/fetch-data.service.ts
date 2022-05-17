@@ -20,6 +20,11 @@ export class FetchDataService {
     return this.httpClient.get<Uniprot>(baseUrl + id);
   }
 
+  getPdbChainsById(id?: string): Observable<PdbChain> {
+    const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbChains/';
+    return this.httpClient.get<PdbChain>(baseUrl + id);
+  }
+
 }
 interface Uniprot {
   uniprotId: string;
@@ -34,6 +39,21 @@ interface Pdb {
   uniprotId : string;
   uniprot: string;
   pdbChains: string;
+}
+
+interface PdbChain {
+  pdbId: string;
+  pdbChainId: string;
+  uniprotId: string;
+  pdbSequence: string;
+  headDomain: string;
+  hingeDomain: string;
+  stalkDomain : string;
+  neckDomain: string;
+  transmembraneDomain: string;
+  cytoplasmicDomain: string;
+  pdb: string;
+  uniprot: string;
 }
 
 // if using authentication, use parameters of get method below (with tweaking)
