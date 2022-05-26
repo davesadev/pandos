@@ -4,7 +4,7 @@
 
 is a novel resource for structural bioinformatics researchers’ that compiles non-uniform protein domain information from many sources into a new, standardized format.
 
-The app is still in it's [alpha release](http://titin.abrol.csun.edu/pandos/), as more data needs to be processed and entered into the database. However, the app is fully functional from a technology standpoint.
+The app is still in it's [alpha release](http://titin.abrol.csun.edu/pandos/), as more data needs to be processed and entered into the database. However, the app is functional from a technology standpoint.
 
 ## What is the problem?
 
@@ -49,8 +49,9 @@ cd pandos-dotnet;
 Install dependancies
 
 ```bash
-nvm install --lts;
+nvm install lts;
 npm install dotnet;
+dotnet tool install --global dotnet-ef;
 ```
 
 Create appsettings.json file
@@ -80,8 +81,8 @@ Migrate data/tables using code first migration
 
 ```bash
 cd PandosAPI/PandosAPI;
-dotnet-ef migrations add Initial --context=pandosContext;
-dotnet-ef database update --context=pandosContext;
+dotnet ef migrations add InitialCreate --context pandosContext;
+dotnet ef database update --context pandosContext;
 ```
 
 Run pandos backend executible (windows required) 
