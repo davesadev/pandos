@@ -2,9 +2,9 @@
 
 # PANDOS
 
-is a fullstack web app that expidites the workflow of structural bioinformatics researchers’  by combining information from many protein databases into a new and easily searchable database.  
+is a novel resource for structural bioinformatics researchers’ that compiles non-uniform protein domain information from many sources into a new, standardized format.
 
-The application's frontend is [deployed](http://titin.abrol.csun.edu/pandos/) on an apache server, while the backend and database are deployed on Azure.
+The app is still in it's [alpha release](http://titin.abrol.csun.edu/pandos/), as more data needs to be processed and entered into the database. However, the app is fully functional from a technology standpoint.
 
 ## What is the problem?
 
@@ -15,6 +15,13 @@ The currently available information on membrane protein domains is scattered ove
 
 A web-based searchable database containing membrane fasta (mfta) files enriched with topological features. All one needs to do is enter a protein's Uniprot ID or a protein complex's PDB ID and the app outputs all of the consensus protein chain information associated with the protein ID.
 
+
+## Implementation details 
+The front end is a SPA that queries the backend using \$HTTP service calls as well as custom components and *ngFor/*ngIf directives to dynamically display data.
+<br><br>
+The backend is a simple CRUD API.
+
+
 ## Tech stack
 
 |                            | Front end                        |                       Back end                       |                               Database |
@@ -24,8 +31,13 @@ A web-based searchable database containing membrane fasta (mfta) files enriched 
 | Deployment method          | Self hosted remote Apache server |                  Azure App Services                  |                   Azure Cloud Database |
 
 
+
+
 # Running instructions
 
+This assumes that you are developing on a windows system and have a local target database for development.
+
+<br><br><br>
 Navigate to parent dir and clone repo
 
 
@@ -64,10 +76,18 @@ Paste in the following code with your own local database credentials
 }
 ```
 
+Migrate data/tables using code first migration
+
+```bash
+cd PandosAPI/PandosAPI;
+dotnet-ef migrations add Initial --context=pandosContext;
+dotnet-ef database update --context=pandosContext;
+```
+
 Run pandos backend executible (windows required) 
 
 ```bash
-cd PandosAPI/PandosAPI/bin/Release/net6.0;
+cd bin/Release/net6.0;
 dotnet run PandosAPI.dll; 
 ```
 
