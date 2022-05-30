@@ -4,9 +4,14 @@
 
 is a novel resource for structural bioinformatics researchers’ that compiles non-uniform protein domain information from many sources into a new, standardized format.
 
-
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/20344260/170983185-b363775a-2e42-4bde-ba27-ed5f09214e11.gif)
-
+<!-- demo video -->
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/20344260/170983185-b363775a-2e42-4bde-ba27-ed5f09214e11.gif" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" 
+       width="850" 
+       alt="demo gif of application: searching for pdb chains from uniprot id using pandos web tool"
+   />
+  
+</div>
 
 The app is still in it's [alpha release](http://titin.abrol.csun.edu/pandos/), as more data needs to be processed and entered into the database. However, the app is functional from a technology standpoint.
 
