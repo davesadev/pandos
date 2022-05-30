@@ -4,6 +4,10 @@
 
 is a novel resource for structural bioinformatics researchers’ that compiles non-uniform protein domain information from many sources into a new, standardized format.
 
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/20344260/170983185-b363775a-2e42-4bde-ba27-ed5f09214e11.gif)
+
+
 The app is still in it's [alpha release](http://titin.abrol.csun.edu/pandos/), as more data needs to be processed and entered into the database. However, the app is functional from a technology standpoint.
 
 ## What is the problem?
