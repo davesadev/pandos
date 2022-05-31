@@ -44,9 +44,12 @@ The backend is a simple CRUD API.
 
 # Running instructions
 
-This assumes that you are developing on a windows system and have a local target database for development.
+These instructions assume a few things:
+* that you are developing on a windows system 
+* have [node version manager](https://github.com/nvm-sh/nvm) installed, and 
+* have a local SQL database for development.
 
-<br><br><br>
+<br><br>
 Navigate to parent dir and clone repo
 
 
