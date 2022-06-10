@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from './../environments/environment';
 
 
 @Injectable({
@@ -11,13 +12,11 @@ export class FetchDataService {
   constructor(private httpClient: HttpClient) { }
 
   getPdbsById(id?: string): Observable<Pdb> {
-    // const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbs/';
     const baseUrl: string = 'https://pandos1.azurewebsites.net/api/pdbs/';
     return this.httpClient.get<Pdb>(baseUrl + id);
   }
 
   getUniprotsById(id?: string): Observable<Uniprot> {
-    // const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
     const baseUrl: string = 'https://pandos1.azurewebsites.net/api/uniprots/';
     return this.httpClient.get<Uniprot>(baseUrl + id);
   }
@@ -39,7 +38,7 @@ interface Uniprot {
 interface Pdb {
   pdbId: string;
   uniprotId : string;
-  uniprot: string;
+  uniprot: Uniprot; // todo: why uniprot? is this an object?
   pdbChains: string;
 }
 
@@ -54,8 +53,8 @@ interface PdbChain {
   neckDomain: string;
   transmembraneDomain: string;
   cytoplasmicDomain: string;
-  pdb: string;
-  uniprot: string;
+  pdb: Pdb;
+  uniprot: Uniprot;
 }
 
 // if using authentication, use parameters of get method below (with tweaking)

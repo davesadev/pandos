@@ -43,7 +43,7 @@
 </mat-card>
 
 <!-- control flow notes: always going to print pdb chains
-     have polymorphic function that takes in either uniprots or pdbs 
+     have polymorphic function that takes in either uniprots or pdbs
      and prints out all the chain information   -->
 
 
@@ -63,7 +63,7 @@
     <ul>
       <li *ngFor="let pdb of pdbs">
         <app-simple-card [cardTitle]="'Pdb ID: ' + pdb.pdbId"
-                         [body]="'Pdb Chains: ' + pdb.pdbChains">
+                         [body]="'Pdb Chains: ' + pdb.pdbChains"  >
         </app-simple-card>
       </li>
     </ul>

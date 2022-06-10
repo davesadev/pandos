@@ -22,7 +22,7 @@ export class FetchConsensusUniprotComponent implements OnInit {
 
   public uniprots: Uniprot[] = [];
   public pdbs: Pdb[] = [];
-
+  public pdbChains: PdbChain[] = [];
 
 
   // GET UNIPROT function -- returns array of uniprot objects
@@ -38,7 +38,7 @@ export class FetchConsensusUniprotComponent implements OnInit {
         this.uniprots = [data];
       }
       console.log(this.uniprots);  // debugging
-      this.querying = false;  
+      this.querying = false;
     })
   }
 
@@ -55,8 +55,27 @@ export class FetchConsensusUniprotComponent implements OnInit {
         this.pdbs = [data];
       }
       console.log(this.pdbs);  // debugging
-      
-      this.querying = false;      
+
+      this.querying = false;
+    })
+  }
+
+
+  // GET PDB call -- returns array of pdb objects
+  // sets this.querying before and after query for loading bar
+  callServiceGetPdbChains(id?: string) {
+    this.querying = true;
+    this.fetchDataService.getPdbChainsById(id).subscribe(data => {
+      // if no id passed, don't cast return array to array -- typescript evaluates "" to false -- ignore ts because linter misinterpreting context
+      if (!id) { // @ts-ignore
+        this.pdbChains = data;
+      }  // else: looking for specific id, cast result to array for front end parsing
+      else {
+        this.pdbChains = [data];
+      }
+      console.log(this.pdbChains);  // debugging
+
+      this.querying = false;
     })
   }
 
@@ -72,6 +91,21 @@ interface Uniprot {
 interface Pdb {
   pdbId: string;
   uniprotId : string;
-  uniprot: string;
+  uniprot: Uniprot;
   pdbChains: string;
+}
+
+interface PdbChain {
+  pdbId: string;
+  pdbChainId: string;
+  uniprotId: string;
+  pdbSequence: string;
+  headDomain: string;
+  hingeDomain: string;
+  stalkDomain : string;
+  neckDomain: string;
+  transmembraneDomain: string;
+  cytoplasmicDomain: string;
+  pdb: Pdb;
+  uniprot: Uniprot;
 }

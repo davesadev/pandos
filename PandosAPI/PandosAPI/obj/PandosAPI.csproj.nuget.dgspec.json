@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[6.0.4, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
             "Microsoft.DotNet.MSIdentity": {
               "target": "Package",
               "version": "[1.0.3, )"

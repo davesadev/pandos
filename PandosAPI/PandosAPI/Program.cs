@@ -81,7 +81,8 @@ builder.Services.AddAuthentication(opt =>
 
 */
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().
+    AddNewtonsoftJson();
 builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "PandosAPI", Version = "v1" });
