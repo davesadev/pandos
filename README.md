@@ -17,7 +17,7 @@ The app is still in it's [alpha release](http://titin.abrol.csun.edu/pandos/), a
 
 ## What is the problem?
 
-The currently available information on membrane protein domains is scattered over different platforms and is mainly focussed towards the transmembrane (TM) domains. In order to compare the same domain between proteins or to compare different domains within a protein, a standard is needed.
+The currently available information on membrane protein domains is scattered over different platforms and is mainly focused towards the transmembrane (TM) domains. In order to compare the same domain between proteins or to compare different domains within a protein, a standard is needed.
 
 
 ## The solution:
